@@ -1,10 +1,12 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 body{
+    flex-direction: column;
     display: flex;
     justify-content: center;
     margin: auto;
     background: green;
+    align-items: center
 }
 #carta{
     border-radius: 20px;
@@ -14,4 +16,26 @@ body{
     width: 400px;
     height: 500px;
     justify-content: space-between;
+}
+.simbolo1{
+    align-items: space-start;
+    font-Size: 120px;
+    display: flex;
+    margin-Left: 20px;
+}
+.numero{
+    align-items: center;
+    font-size: 150px;
+    display: flex;
+}
+.simbolo2{
+    font-size: 120px;
+    align-items: space-end;
+    display: flex;
+    transform: rotate(180deg);
+    margin-right: 20px;
+}
+#reset{
+    margin: 30px;
+    display: flex;
 }
