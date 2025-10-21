@@ -13,9 +13,6 @@ window.onload = function () {
   let tiempo = 10
   let intervalo;
 
-  let temporizador = document.createElement('h1');
-  document.body.appendChild(temporizador);
-
   let button = document.getElementById('reset');
   button.classList.add("btn", "btn-outline-light");
 
@@ -34,6 +31,16 @@ window.onload = function () {
   simbolo2.classList.add("simbolo2");
   div.appendChild(simbolo2);
 
+  let temporizador = document.createElement('h1');
+  temporizador.innerHTML = tiempo
+  document.body.appendChild(temporizador);
+
+  // let altura = document.getElementById('altura')
+  // altura.addEventListener('input', function(){
+  //    altura.value = div.style.height ?`${this.value}px`:'';
+  // })
+  
+
   function botonDeCarta() {
     let simbolosRandom = simbolos[Math.floor(Math.random() * simbolos.length)]
     let numeroRandom = numeros[Math.floor(Math.random() * numeros.length)];
@@ -51,8 +58,6 @@ window.onload = function () {
       numero.style.color = '#000000';
     }
   }
-
-  
 
   function cuentraregresiva() {
     intervalo = setInterval(() => {
