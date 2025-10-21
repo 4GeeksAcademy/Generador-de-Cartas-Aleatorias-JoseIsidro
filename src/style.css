@@ -15,25 +15,24 @@ body{
     background-color: white;
     width: 400px;
     height: 500px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .simbolo1{
     align-items: space-start;
-    font-Size: 120px;
+    font-Size: 125px;
     display: flex;
-    margin-Left: 20px;
+    
 }
 .numero{
     align-items: center;
-    font-size: 150px;
+    font-size: 125px;
     display: flex;
 }
 .simbolo2{
-    font-size: 120px;
+    font-size: 125px;
     align-items: space-end;
     display: flex;
     transform: rotate(180deg);
-    margin-right: 20px;
 }
 #reset{
     margin: 30px;

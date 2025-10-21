@@ -34,12 +34,37 @@ window.onload = function () {
   let temporizador = document.createElement('h1');
   temporizador.innerHTML = tiempo
   document.body.appendChild(temporizador);
+  let ancho = document.getElementById('ancho');
+  let altura = document.getElementById('altura');
+  altura.addEventListener('input', function () {
+    if (altura.value >= 100 && altura.value <= 1000) {
+      (div.style.height = `${this.value}px`) && 
+      (ancho.value ? (div.style.width = `${ancho.value}px`):(div.style.width = `${this.value * 0.8}px`)) && 
+      (simbolo1.style.fontSize = `${this.value * 0.25}px`) &&
+      (numero.style.fontSize = `${this.value * 0.25}px`) &&
+      (simbolo2.style.fontSize = `${this.value * 0.25}px`)
+    }else {
+      (div.style.height = '500px') && 
+      (div.style.width = '400px') && 
+      (simbolo1.style.fontSize = '125px') && 
+      (numero.style.fontSize = '125px') && 
+      (simbolo2.style.fontSize = '125px')
+    }
+  })
 
-  // let altura = document.getElementById('altura')
-  // altura.addEventListener('input', function(){
-  //    altura.value = div.style.height ?`${this.value}px`:'';
-  // })
-  
+  ancho.addEventListener('input', function () {
+    if (ancho.value >= 100 && ancho.value <= 1000) {
+      (div.style.width = `${this.value}px`) && 
+      ((altura.value) ? (div.style.height = `${altura.value}px`):(div.style.height = `${this.value * 1.25}px`)) &&
+      (simbolo1.style.fontSize = `${this.value * 0.25}px`) &&
+      (numero.style.fontSize = `${this.value * 0.25}px`) &&
+      (simbolo2.style.fontSize = `${this.value * 0.25}px`)
+    }else {
+      (div.style.height = '500px') && (div.style.width = '400px') && (simbolo1.style.fontSize = '125px') && (numero.style.fontSize = '125px') && (simbolo2.style.fontSize = '125px')
+    }
+  })
+
+
 
   function botonDeCarta() {
     let simbolosRandom = simbolos[Math.floor(Math.random() * simbolos.length)]
@@ -73,11 +98,11 @@ window.onload = function () {
     }, 1000);
   }
   cuentraregresiva()
-  button.addEventListener('click', function(){
+  button.addEventListener('click', function () {
     clearInterval(intervalo);
     tiempo = 10;
     cuentraregresiva();
     botonDeCarta();
   });
-  
+
 };
