@@ -19,17 +19,17 @@ body{
 }
 .simbolo1{
     align-items: space-start;
-    font-Size: 125px;
+    font-Size :7em;
     display: flex;
     
 }
 .numero{
     align-items: center;
-    font-size: 125px;
+    font-Size :7em ;
     display: flex;
 }
 .simbolo2{
-    font-size: 125px;
+    font-Size:7em ;
     align-items: space-end;
     display: flex;
     transform: rotate(180deg);

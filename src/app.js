@@ -36,35 +36,24 @@ window.onload = function () {
   document.body.appendChild(temporizador);
   let ancho = document.getElementById('ancho');
   let altura = document.getElementById('altura');
-  altura.addEventListener('input', function () {
-    if (altura.value >= 100 && altura.value <= 1000) {
-      (div.style.height = `${this.value}px`) && 
-      (ancho.value ? (div.style.width = `${ancho.value}px`):(div.style.width = `${this.value * 0.8}px`)) && 
-      (simbolo1.style.fontSize = `${this.value * 0.25}px`) &&
-      (numero.style.fontSize = `${this.value * 0.25}px`) &&
-      (simbolo2.style.fontSize = `${this.value * 0.25}px`)
-    }else {
-      (div.style.height = '500px') && 
-      (div.style.width = '400px') && 
-      (simbolo1.style.fontSize = '125px') && 
-      (numero.style.fontSize = '125px') && 
-      (simbolo2.style.fontSize = '125px')
+
+  function reajustaCarta(pri, sec){
+    if (pri.value >= 100 && pri.value <= 1000 && sec.value >= 100 && sec.value <= 1000 ) {
+      (div.style.height = `${pri.value}px`) &&
+        (sec.value ? (div.style.width = `${sec.value}px`) : (div.style.width = `${pri.value * 0.8}px`)) &&
+        (altura.value < ancho.value ) && (simbolo1.style.fontSize = `${ancho.value * 0.25}px`) &&
+        (numero.style.fontSize = `${ancho.value * 0.25}px`) &&
+        (simbolo2.style.fontSize = `${ancho.value * 0.25}px`)
+    } else {
+      (div.style.height = '500px') &&
+        (div.style.width = '400px') &&
+        (simbolo1.style.fontSize = '125px') &&
+        (numero.style.fontSize = '125px') &&
+        (simbolo2.style.fontSize = '125px')
     }
-  })
+  }
 
-  ancho.addEventListener('input', function () {
-    if (ancho.value >= 100 && ancho.value <= 1000) {
-      (div.style.width = `${this.value}px`) && 
-      ((altura.value) ? (div.style.height = `${altura.value}px`):(div.style.height = `${this.value * 1.25}px`)) &&
-      (simbolo1.style.fontSize = `${this.value * 0.25}px`) &&
-      (numero.style.fontSize = `${this.value * 0.25}px`) &&
-      (simbolo2.style.fontSize = `${this.value * 0.25}px`)
-    }else {
-      (div.style.height = '500px') && (div.style.width = '400px') && (simbolo1.style.fontSize = '125px') && (numero.style.fontSize = '125px') && (simbolo2.style.fontSize = '125px')
-    }
-  })
-
-
+  
 
   function botonDeCarta() {
     let simbolosRandom = simbolos[Math.floor(Math.random() * simbolos.length)]
@@ -73,14 +62,12 @@ window.onload = function () {
     numero.innerHTML = numeroRandom;
     simbolo2.innerHTML = simbolosRandom;
 
-    if (simbolosRandom == '♥' || simbolosRandom == '♦') {
+    if (simbolosRandom === '♥' || simbolosRandom == '♦') {
       simbolo1.style.color = '#ff2c2c';
       simbolo2.style.color = '#ff2c2c';
-      numero.style.color = '#ff2c2c';
     } else {
       simbolo1.style.color = '#000000';
       simbolo2.style.color = '#000000';
-      numero.style.color = '#000000';
     }
   }
 
@@ -103,6 +90,7 @@ window.onload = function () {
     tiempo = 10;
     cuentraregresiva();
     botonDeCarta();
+    reajustaCarta(altura, ancho)
   });
 
 };
